@@ -1,0 +1,1 @@
+C:\Hadoop\hadoop-3.3.5\sbin\start-all.cmd

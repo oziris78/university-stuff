@@ -1,0 +1,1 @@
+hadoop jar ./myjobs.jar oguzhantopaloglu.Avg /input /out1

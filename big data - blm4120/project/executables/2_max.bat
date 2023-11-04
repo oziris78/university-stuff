@@ -1,0 +1,1 @@
+hadoop jar ./myjobs.jar oguzhantopaloglu.Max /input /out2

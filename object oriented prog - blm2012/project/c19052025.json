@@ -1,0 +1,116 @@
+{
+  "questionSetOptions": [
+    {
+      "min": 1,
+      "max": 10,
+      "N": 3
+    },
+    {
+      "min": 2,
+      "max": 4,
+      "N": 5
+    }
+  ],
+  "previousPlays": [
+    {
+      "answeredBy": "Yunus balığı",
+      "min": 2,
+      "max": 4,
+      "N": 5,
+      "leftValues": [
+        3,
+        2,
+        3,
+        4,
+        2
+      ],
+      "rightValues": [
+        3,
+        2,
+        3,
+        2,
+        3
+      ],
+      "correctness": [
+        false,
+        true,
+        false,
+        true,
+        false
+      ],
+      "scoreMilliseconds": 9220
+    },
+    {
+      "answeredBy": "Yunus balığı",
+      "min": 1,
+      "max": 10,
+      "N": 3,
+      "leftValues": [
+        8,
+        6,
+        8
+      ],
+      "rightValues": [
+        1,
+        7,
+        3
+      ],
+      "correctness": [
+        true,
+        true,
+        true
+      ],
+      "scoreMilliseconds": 9105
+    },
+    {
+      "answeredBy": "Ozi",
+      "min": 1,
+      "max": 10,
+      "N": 3,
+      "leftValues": [
+        6,
+        4,
+        5
+      ],
+      "rightValues": [
+        2,
+        5,
+        1
+      ],
+      "correctness": [
+        true,
+        true,
+        true
+      ],
+      "scoreMilliseconds": 4145
+    },
+    {
+      "answeredBy": "Ozi",
+      "min": 2,
+      "max": 4,
+      "N": 5,
+      "leftValues": [
+        4,
+        3,
+        3,
+        3,
+        3
+      ],
+      "rightValues": [
+        3,
+        2,
+        4,
+        2,
+        3
+      ],
+      "correctness": [
+        true,
+        true,
+        false,
+        true,
+        true
+      ],
+      "scoreMilliseconds": 51680
+    }
+  ]
+}

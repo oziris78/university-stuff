@@ -1,0 +1,1 @@
+hadoop jar ./myjobs.jar oguzhantopaloglu.Min /input /out3

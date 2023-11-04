@@ -1,0 +1,46 @@
+
+EXTRN DIST_SQUARED_TO_AX:FAR
+
+myss SEGMENT PARA STACK 'sss'
+	DW 32 DUP(?)
+myss ENDS
+
+
+myds SEGMENT PARA 'ddd'
+	POINTS   DW  2, 5, 0, 0, 9, 10, 7, 8
+	n        DW  4
+myds ENDS
+
+
+mycs SEGMENT PARA 'ccc'
+	ASSUME CS:mycs, DS:myds, SS:myss
+
+MAIN PROC FAR
+	PUSH DS
+	XOR AX, AX
+	PUSH AX
+	MOV AX, myds
+	MOV DS, AX
+
+	; main code
+	MOV CX, n
+	SHR CX, 1
+
+	XOR SI, SI
+L1:
+	PUSH POINTS[SI]
+	PUSH POINTS[SI+2]
+	PUSH POINTS[SI+4]
+	PUSH POINTS[SI+6]
+	CALL DIST_SQUARED_TO_AX
+	ADD SI, 8
+	LOOP L1
+	
+	; main code
+
+
+	RETF
+MAIN ENDP
+mycs ENDS
+	END MAIN
+

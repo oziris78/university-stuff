@@ -1,0 +1,18 @@
+
+
+
+Yunus hoca derste Gradle filan kullanacaksan da yine de JAR dosyalarını
+koyabiliyorsan koy bir sıkıntı oluşmasın dedi bu yüzden "jar dosyaları" isimli
+klasörde bulabildiğim jar'ları ekledim ancak projede Gradle kullanıldığından dolayı
+manüel jar eklemesi yapmak yerine Gradle ile proje açılırsa daha iyi olur.
+
+
+Ayrıca Yunus hoca Gson kütüphanesi ile JSON veri formatını kullanabileceğimizi de söylediğinden
+dolayı CSV dosyaları ile veri kaydetmek yerine JSON dosyaları ile veri kaydettim. Bu dosyalar
+GUI içinden "Check Scores" butonuna tıklanarak görüntülenebilmektedir. Tanımlanan soru modları
+ise oyuna başlamadan önce çocuklara gösterilmektedir.
+
+
+
+
+- Oğuzhan Topaloğlu, Ç19052025

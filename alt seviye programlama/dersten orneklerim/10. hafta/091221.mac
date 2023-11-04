@@ -1,0 +1,13 @@
+ENKCK	MACRO dizi, n
+		LOCAL L1, don    ; kopyala yapıştır yapınca sorun çıkmasın diye bu makro içindeki L1'i algılamasını sağlar
+		XOR SI, SI
+		MOV AL, dizi[SI]
+		INC SI
+		MOV CX, n
+		DEC CX
+L1:		CMP AL, dizi[SI]
+		JL don
+		MOV AL, dizi[SI]
+don:	INC SI
+		LOOP L1
+		ENDM

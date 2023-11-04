@@ -1,0 +1,1 @@
+hadoop jar ./myjobs.jar oguzhantopaloglu.Std /input2 /dummy-out4

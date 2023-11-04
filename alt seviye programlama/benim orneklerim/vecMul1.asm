@@ -1,0 +1,94 @@
+
+EXTRN VECTOR_MUL:FAR
+
+MYSS SEGMENT PARA STACK 'MYSS'
+	DW 32 DUP(?)
+MYSS ENDS
+
+MYDS SEGMENT PARA 'MYDS'
+	VECS DB 1, -1, 0, 7, 8, 9, 2, 0, 0, 1, -1, 10, 0, 0, 0, 0, 0, 0
+	N DW 3
+	PROD DB 9 DUP(?)
+	OVERXYZ DW 0
+	; 1 -1 0   7 8 9    =>  -9 -9 15  (F7, F7, 0F)  (DX, BX, AX)
+	; 2 0 0    1 -1 10  =>  0 -20 -2  (00, EC, FE)
+MYDS ENDS
+
+
+MYCS SEGMENT PARA 'MYCS'
+	ASSUME CS:MYCS, SS:MYSS, DS:MYDS
+
+	MAIN PROC FAR
+		PUSH DS
+		XOR AX, AX
+		PUSH AX
+		MOV AX, MYDS
+		MOV DS, AX
+		; main
+
+		MOV CX, N
+		XOR SI, SI
+	L1:
+		XOR AX, AX
+		MOV AL, VECS[SI]        ; a
+		PUSH AX
+		MOV AL, VECS[SI+1]      ; b
+		PUSH AX
+		MOV AL, VECS[SI+2]      ; c
+		PUSH AX
+		MOV AL, VECS[SI+3]      ; u
+		PUSH AX
+		MOV AL, VECS[SI+4]      ; v
+		PUSH AX
+		MOV AL, VECS[SI+5]      ; w
+		PUSH AX
+
+		CALL VECTOR_MUL
+
+		; (DX, BX, AX)
+		SHR SI, 1
+		MOV PROD[SI], DL
+		MOV PROD[SI+1], BL
+		MOV PROD[SI+2], AL
+		SHL SI, 1
+
+		ADD SI, 6
+
+		LOOP L1
+
+
+	
+		MOV CX, N
+		XOR SI, SI
+	L2:
+		MOV AL, PROD[SI]
+		MOV AH, PROD[SI+1]
+		MOV BL, PROD[SI+2]
+
+		CMP AL, 0
+		JZ INC_OVERXYZ
+		CMP AH, 0
+		JZ INC_OVERXYZ
+		CMP BL, 0
+		JZ INC_OVERXYZ
+
+		JMP CONT
+	INC_OVERXYZ:
+		INC OVERXYZ
+	CONT:
+
+		ADD SI, 3
+		LOOP L2
+
+
+		; main
+
+		RETF
+	MAIN ENDP
+
+MYCS ENDS
+	END MAIN
+
+
+
+
