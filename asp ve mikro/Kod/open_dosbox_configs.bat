@@ -1,0 +1,1 @@
+"C:\Program Files (x86)\DOSBox-0.74-3\DOSBox.exe" -editconf notepad.exe -editconf "%SystemRoot%\system32\notepad.exe" -editconf "%WINDIR%\notepad.exe"
