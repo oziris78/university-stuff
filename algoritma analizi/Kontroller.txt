@@ -1,0 +1,24 @@
+
+
+
+
+Kod kontrolleri:
+	- En üstte isim, numara, ödev sayısı yazmalı.
+	- Her fonksiyonda @brief, @param, @return ile dokümantasyon yazmalı.
+
+
+Video kontrolleri:
+	- Kendini tanıtma => kodun genel yapısı => helper funcs => 2 basit örnek => 2 edgecase örnek => bitir
+	- Video PUBLIC OLMAMALI
+
+Rapor kontrolleri:
+	- Raporda video linki bulunmalı
+	- Kapak ve ekran çıktıları hariç 3 sayfadan uzun olmamalı
+
+
+Yükleme kontrolleri:
+	- C19052025.rar => C19052025.c, C19052025.pdf
+	- Yükleme sonrası ekran görüntüsü al kanıt olarak
+
+
+

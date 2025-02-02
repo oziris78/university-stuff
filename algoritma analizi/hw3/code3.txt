@@ -1,0 +1,16 @@
+
+
+int main () { 
+  int _x1;
+  float _x2;
+  char _x3;
+  char _x4;
+  float _x5;
+  int _x6;
+  _x5 = _x6 + _x1 + _x2;
+  _x1 = 20;
+  _x7 = 5;
+  _y2 = 20;
+  int _y2;
+  _y2 = 20;
+}

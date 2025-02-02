@@ -1,0 +1,14 @@
+ENKCK	MACRO dizi, n
+		LOCAL L1, don
+		XOR DI, DI
+		MOV AL, dizi[DI]
+		INC DI
+		MOV CX, n
+		DEC CX
+L1:		CMP AL, dizi[DI]
+		JL don
+		MOV AL, dizi[DI]
+don:	INC DI
+		LOOP L1
+		ENDM
+		

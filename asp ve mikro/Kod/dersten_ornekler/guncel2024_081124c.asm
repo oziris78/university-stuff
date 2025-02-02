@@ -1,0 +1,26 @@
+		EXTRN SIRALIMI:FAR
+		PUBLIC dizi, n
+myds	SEGMENT PARA 'veri'
+dizi	DB 12, 17, 16, 18, 20, 22
+n		DW 6
+S		DB 0
+myds	ENDS
+myss	SEGMENT PARA STACK 'yigin'
+		DW 12 DUP(?)
+myss	ENDS
+mycs	SEGMENT PARA 'kod'
+		ASSUME CS:mycs, DS:myds, SS:myss
+ANA		PROC FAR
+		PUSH DS
+		XOR AX, AX
+		PUSH AX
+		MOV AX, myds
+		MOV DS, AX
+		CALL SIRALIMI
+		CMP AL, 0
+		JZ SIRASIZ
+		MOV S, 1
+SIRASIZ: RETF
+ANA		ENDP
+mycs	ENDS
+		END ANA

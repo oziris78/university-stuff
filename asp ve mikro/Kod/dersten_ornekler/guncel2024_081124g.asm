@@ -1,0 +1,30 @@
+		PUBLIC SAYveBOL
+mycs	SEGMENT WORD PUBLIC 'kod'
+		ASSUME CS:mycs
+SAYveBOL PROC FAR
+		PUSH BX
+		PUSH CX
+		PUSH DX
+		PUSH BP
+		MOV BP, SP
+		MOV AX, [BP+12]
+		XOR BX, BX
+		MOV CX, 16
+L1:		SHR AX, 1
+		ADC BX, 0
+		LOOP L1
+		CMP BX, 0
+		JE sorun
+		MOV AX, [BP+12]
+		CWD
+		IDIV BX
+		
+sorun:	POP BP
+		POP DX
+		POP CX
+		POP BX
+		RETF 2
+
+SAYveBOL ENDP
+mycs	ENDS
+		END

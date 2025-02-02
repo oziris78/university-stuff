@@ -1,0 +1,76 @@
+
+
+
+
+AX = 250 + (ogrNo % 107)
+
+19052025 % 107   =  33
+
+AX = 250 + 33  = 283
+
+
+
+
+
+
+http://shell-storm.org/online/Online-Assembler-and-Disassembler/?opcodes=B8+1B+01+50+E8+04+00+58+C3+E2+FE+55+8B+EC+53+50+52+56+8B+5E+04+8B+F3+83+FB+02+7E+36+D1+E3+83+BF+5D+01+00+7F+23+8B+DE+4B+53+E8+DF+FF+58+50+E8+DA+FF+5A+2B+D8+43+53+E8+D2+FF+58+03+D0+D1+E6+89+94+5D+01+89+56+04+EB+10+90+8B+9F+5D+01+89+5E+04+EB+06+90+C7+46+04+01+00+5E+5A+58+5B+5D+C3+00+00+FF+FF+FF+FF+FF+FF+FF+FF+FF+FF+FF+FF+FF+FF+FF+FF+FF+FF+FF+FF+FF+FF+FF+FF+FF+FF+FF+FF+FF+FF+FF+FF+FF&arch=x86-16&endianness=little&dis_with_addr=True&dis_with_raw=True&dis_with_ins=True#disassembly
+
+
+
+
+
+0x0000000000000000:  B8 1B 01          mov  ax, 0x11b
+0x0000000000000003:  50                push ax
+0x0000000000000004:  E8 04 00          call 0xb
+0x0000000000000007:  58                pop  ax
+0x0000000000000008:  C3                ret  
+
+
+
+0x0000000000000009:  E2 FE             loop 9
+0x000000000000000b:  55                push bp
+0x000000000000000c:  8B EC             mov  bp, sp
+0x000000000000000e:  53                push bx
+0x000000000000000f:  50                push ax
+0x0000000000000010:  52                push dx
+0x0000000000000011:  56                push si
+0x0000000000000012:  8B 5E 04          mov  bx, word ptr [bp + 4]
+0x0000000000000015:  8B F3             mov  si, bx
+0x0000000000000017:  83 FB 02          cmp  bx, 2
+0x000000000000001a:  7E 36             jle  0x52
+0x000000000000001c:  D1 E3             shl  bx, 1
+0x000000000000001e:  83 BF 5D 01 00    cmp  word ptr [bx + 0x15d], 0
+0x0000000000000023:  7F 23             jg   0x48
+0x0000000000000025:  8B DE             mov  bx, si
+0x0000000000000027:  4B                dec  bx
+0x0000000000000028:  53                push bx
+0x0000000000000029:  E8 DF FF          call 0xb
+0x000000000000002c:  58                pop  ax     ; AX = BP
+0x000000000000002d:  50                push ax
+0x000000000000002e:  E8 DA FF          call 0xb
+0x0000000000000031:  5A                pop  dx
+0x0000000000000032:  2B D8             sub  bx, ax    
+0x0000000000000034:  43                inc  bx
+0x0000000000000035:  53                push bx
+0x0000000000000036:  E8 D2 FF          call 0xb
+0x0000000000000039:  58                pop  ax
+0x000000000000003a:  03 D0             add  dx, ax
+0x000000000000003c:  D1 E6             shl  si, 1
+0x000000000000003e:  89 94 5D 01       mov  word ptr [si + 0x15d], dx
+0x0000000000000042:  89 56 04          mov  word ptr [bp + 4], dx
+0x0000000000000045:  EB 10             jmp  0x57
+0x0000000000000047:  90                nop  
+0x0000000000000048:  8B 9F 5D 01       mov  bx, word ptr [bx + 0x15d]
+0x000000000000004c:  89 5E 04          mov  word ptr [bp + 4], bx
+0x000000000000004f:  EB 06             jmp  0x57
+0x0000000000000051:  90                nop  
+0x0000000000000052:  C7 46 04 01 00    mov  word ptr [bp + 4], 1
+0x0000000000000057:  5E                pop  si
+0x0000000000000058:  5A                pop  dx
+0x0000000000000059:  58                pop  ax
+0x000000000000005a:  5B                pop  bx
+0x000000000000005b:  5D                pop  bp
+0x000000000000005c:  C3                ret  
+0x000000000000005d:  00 00             add  byte ptr [bx + si], al
+
+

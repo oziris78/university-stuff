@@ -1,0 +1,52 @@
+STSG SEGMENT PARA STACK 'STSGM'
+	DW 20 DUP (?)
+STSG ENDS
+
+DTSG SEGMENT PARA 'DTSGM'
+	X DW -40
+DTSG ENDS
+
+CDSG SEGMENT PARA 'CDSGM'
+	ASSUME CS: CDSG, DS: DTSG, SS: STSG
+	
+	ANA PROC FAR
+
+		PUSH DS
+		XOR AX, AX
+		PUSH AX
+
+		MOV AX, DTSG
+		MOV DS, AX
+		
+		;CODE
+
+		; y = (18 * x) / 10 + 32
+		XOR BX, BX
+		XOR AX, AX
+		XOR DX, DX
+		CLC
+
+
+		MOV AX, 18
+		MOV BX, X
+		IMUL BX ; DX:AX <- AX * src
+		; DX:AX = 18 * X
+		
+		MOV BX, 10
+		IDIV BX ; AX <- DX:AX / src, DX <- DX:AX % src
+		; AX = 1.8 * X
+
+		MOV BX, 32
+		ADD AX, BX
+
+
+
+		;CODE	
+		
+		RETF
+	ANA ENDP
+
+
+CDSG ENDS
+
+	END ANA
